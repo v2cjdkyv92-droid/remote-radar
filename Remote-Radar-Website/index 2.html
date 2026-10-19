@@ -1,0 +1,798 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f5f6f8">
+  <meta name="description" content="A private Bluetooth feasibility test for your LG Magic Remote. Real advertisements only. No simulated proximity.">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-lMPN6sC40XnPlhSweWBTbKFDrs1OA5qg9Ercy9ch8T0='; style-src 'self' 'sha256-kYC2W1dBt7pMO3uNWHhvx5y3CdcCejFF9tS1c/+gupA='; connect-src 'none'; img-src 'self' data:; object-src 'none'; base-uri 'self'; form-action 'none'">
+  <title>Remote Radar — Find the signal first</title>
+  <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0OCA0OCI+PHJlY3Qgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQ4IiByeD0iMTQiIGZpbGw9IiMyNzVlZjUiLz48ZyBmaWxsPSJub25lIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIiPjxjaXJjbGUgY3g9IjI0IiBjeT0iMjQiIHI9IjE1Ii8+PGNpcmNsZSBjeD0iMjQiIGN5PSIyNCIgcj0iOCIvPjxwYXRoIGQ9Im0yNCAyNCAxMS0xMSIvPjwvZz48Y2lyY2xlIGN4PSIyNCIgY3k9IjI0IiByPSIyIiBmaWxsPSJ3aGl0ZSIvPjwvc3ZnPgo=" type="image/svg+xml">
+  <style>
+:root{color-scheme:light;--bg:#f5f6f8;--white:#fff;--ink:#17202d;--muted:#687385;--line:#e8ebf0;--blue:#275ef5;--blue-soft:#eef3ff;--green:#217650;--amber:#966121;--red:#a23636;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-synthesis:none}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);-webkit-font-smoothing:antialiased}button,a,input,summary{-webkit-tap-highlight-color:transparent}a{color:var(--blue)}button,input,summary{font:inherit}button,summary{cursor:pointer}button:disabled{cursor:default}button:focus-visible,a:focus-visible,summary:focus-visible,input:focus-visible{outline:3px solid #779bff;outline-offset:4px}[hidden]{display:none!important}svg{stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}.app-shell{max-width:1152px;margin:auto;padding:0 40px}.skip{position:absolute;top:-80px;left:20px;padding:12px;background:white;z-index:5}.skip:focus{top:10px}.topbar{display:flex;align-items:center;justify-content:space-between;padding:29px 0 27px;border-bottom:1px solid #e3e7ed}.brand{display:flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink);font-size:19px;letter-spacing:-.6px;font-weight:720}.brand-icon{width:39px;height:39px;background:var(--blue);color:white;border-radius:12px;display:grid;place-items:center}.brand-icon svg{width:29px;height:29px}.brand-sub{display:block;color:#8b94a2;font-size:8px;letter-spacing:1.9px;margin-top:4px;font-weight:650}.privacy-chip{display:flex;align-items:center;gap:6px;text-decoration:none;color:#647163;font-size:11px;font-weight:600;border:1px solid #dfe6df;border-radius:20px;padding:8px 11px;background:#f8fbf8}.privacy-chip svg{width:15px;height:15px}.intro{padding:46px 0 30px}.eyebrow{display:flex;align-items:center;gap:8px;font-size:10px;letter-spacing:1.4px;font-weight:650;color:#687489}.small-dot{width:5px;height:5px;border-radius:100%;background:#779bff}.tag{font-size:8px;letter-spacing:1px;border:1px solid #dce2ec;border-radius:4px;padding:4px 6px;font-weight:650;white-space:nowrap;color:#79869a}.eyebrow .tag{margin-left:5px}h1{font-size:54px;letter-spacing:-2.8px;line-height:1.1;margin:19px 0 14px;font-weight:660}.intro p{font-size:15px;line-height:1.65;color:var(--muted);margin:0}.mobile-break{display:none}.steps{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid #dde3ed;max-width:642px;margin-bottom:24px}.step{display:flex;align-items:center;gap:9px;color:#8792a3;font-size:12px;font-weight:600;padding:0 0 17px;position:relative}.step-num{width:22px;height:22px;display:grid;place-items:center;background:#e8ecf2;border:1px solid transparent;border-radius:50%;font-size:10px}.step.current{color:var(--blue)}.step.current .step-num{color:white;background:var(--blue);box-shadow:0 0 0 4px #e5ecff}.step.current:after{content:"";position:absolute;bottom:-1px;width:calc(100% - 20px);height:2px;background:var(--blue)}.step.done .step-num{background:#e6efea;color:var(--green)}.workspace{display:grid;grid-template-columns:minmax(0,1.43fr) minmax(285px,1fr);gap:24px;align-items:start}.card{background:white;border:1px solid #e6e9ef;border-radius:20px;box-shadow:0 3px 9px #22335502}.test-card{padding:25px 30px 0;overflow:hidden;scroll-margin-top:20px}.card-topline{display:flex;align-items:center;justify-content:space-between;gap:10px}.overline{font-size:9px;font-weight:650;letter-spacing:1.55px;color:#7b889b}.status-badge{font-size:10px;color:#7e899a;display:flex;gap:5px;align-items:center;background:#f4f6f9;padding:6px 8px;border-radius:7px}.status-badge>span{width:4px;height:4px;border-radius:50%;background:currentColor}.status-badge.active{background:var(--blue-soft);color:var(--blue)}.status-badge.good{background:#eff7f1;color:var(--green)}.status-badge.blocked{background:#fff3e3;color:var(--amber)}.radar{width:250px;height:250px;position:relative;display:grid;place-items:center;margin:20px auto 0}.radar-grid{position:absolute;inset:10px;background:linear-gradient(90deg,transparent calc(50% - .5px),#eaf0fa 50%,transparent calc(50% + .5px)),linear-gradient(transparent calc(50% - .5px),#eaf0fa 50%,transparent calc(50% + .5px));border-radius:50%;mask-image:radial-gradient(black,transparent 70%)}.radar-ring{position:absolute;border:1px solid #e7edf9;border-radius:50%}.ring-one{width:210px;height:210px}.ring-two{width:158px;height:158px;background:#f7f9ff66}.ring-three{width:108px;height:108px;background:#f1f5ff88;border-color:#e4ecff}.remote-icon{color:var(--blue);width:62px;height:92px;z-index:1;display:grid;place-items:center;transform:rotate(16deg)}.remote-icon svg{width:43px;height:82px;stroke-width:1.65}.radar-caption{position:absolute;bottom:3px;font-size:8px;font-weight:600;letter-spacing:1.5px;color:#8a98ae}.radar.scanning .ring-one{animation:breathe 2.4s ease-in-out infinite}.radar.scanning .ring-two{border-color:#bdd0ff}.radar.scanning .radar-caption{color:var(--blue)}.phase-copy{text-align:center;margin:15px auto 0;max-width:430px}.phase-copy h2{font-size:24px;letter-spacing:-.9px;font-weight:660;margin:0 0 10px}.phase-copy p{color:var(--muted);font-size:13px;line-height:1.7;margin:0}.actions{display:flex;flex-direction:column;gap:9px;margin-top:25px}.button{border:0;border-radius:12px;min-height:53px;padding:15px 19px;display:flex;justify-content:center;align-items:center;gap:9px;font-size:13px;font-weight:600;transition:background .15s,transform .15s}.button svg{width:17px;height:19px}.button.primary{background:var(--blue);color:white;box-shadow:0 5px 12px #275ef51a}.button.primary:hover:not(:disabled){background:#1c4ed8}.button:active:not(:disabled){transform:translateY(1px)}.button:disabled{background:#edf0f5;color:#93a0b3;box-shadow:none}.button-arrow{margin-left:auto;font-size:18px;line-height:10px}.primary>svg+span{margin-left:auto}.secondary{background:#f0f3f8;color:#56647a}.action-footnote{text-align:center;font-size:10px;color:#8b96a7;margin:12px 0 24px}.readouts{border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(3,1fr);margin:0 -30px;padding:21px 15px}.readouts>div{display:flex;flex-direction:column;align-items:center;gap:5px}.readouts>div+div{border-left:1px solid var(--line)}.readouts span{font-size:21px;font-weight:550;letter-spacing:-.8px;font-variant-numeric:tabular-nums}.readouts small{font-size:9px;color:#8a95a6}.side-column{display:flex;flex-direction:column;gap:17px}.checks-card{padding:23px 23px 13px}.section-heading{display:flex;justify-content:space-between;align-items:center;gap:12px}.section-heading h2,.plan-card>h2{font-size:14px;margin:0;letter-spacing:-.25px;font-weight:650}.mini-icon{color:#a0aabd;font-size:24px;line-height:16px}.muted{color:var(--muted)}.small{font-size:11px;line-height:1.6}.checks-card>.small{margin:7px 0 15px;font-size:10px}.checks{margin:0}.checks>div{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 0;border-top:1px solid #f0f2f6}.checks dt{font-size:11px;color:#647187}.check-pill{margin:0;font-size:9px;font-weight:550;color:#8a95a7;white-space:nowrap}.check-pill.good{color:var(--green)}.check-pill.good:before{content:"✓ ";font-weight:700}.check-pill.bad{color:var(--amber)}.check-pill.pending{color:var(--blue)}.limit-note{display:flex;align-items:flex-start;gap:10px;padding:0 10px}.info-icon{flex:0 0 15px;width:15px;height:15px;display:grid;place-items:center;border:1px solid #a0aabc;border-radius:50%;font-family:serif;font-size:10px;color:#758397;margin-top:1px}.limit-note h2{font-size:11px;font-weight:600;margin:0 0 5px;color:#5b697e}.limit-note p{font-size:10px;line-height:1.7;margin:0;color:#8893a5}.plan-card{padding:22px 23px 0}.plan{list-style:none;padding:0;margin:21px 0}.plan li{display:flex;gap:13px;margin:17px 0}.plan li>span{color:#a1acc0;font-size:9px;margin-top:2px;font-weight:600}.plan strong{font-size:11px;font-weight:600;color:#5d6b80}.plan p{font-size:10px;color:#929caf;margin:5px 0 0}.plan-time{border-top:1px solid var(--line);margin:0 -23px;padding:13px 23px;font-size:9px;color:#939eb0;display:flex;align-items:center;gap:6px}.plan-time>span{font-size:15px}.setup-help{background:#f7f9ff;border-radius:10px;padding:13px;margin:8px 0;font-size:11px;line-height:1.7;color:#586b87}.setup-help p{margin:5px 0 7px}.setup-help strong{font-weight:600}.setup-help a{font-size:10px}.lower-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:24px}.detail-card{border-radius:14px;padding:0 19px}.detail-card summary{font-size:11px;font-weight:600;padding:18px 0;display:flex;align-items:center;gap:8px;list-style:none}.detail-card summary:before{content:"+";font-size:17px;color:#8592a6;font-weight:400;margin-right:3px}.detail-card[open] summary:before{content:"−"}.detail-card summary::-webkit-details-marker{display:none}.detail-card summary>svg{margin-left:auto;width:15px;height:15px;color:#9aa6b8}.detail-count{margin-left:auto;color:#9aa6b8;font-size:9px;font-weight:400}.detail-copy{font-size:12px;line-height:1.7;color:#69778d;padding:0 0 15px}.detail-copy p:first-child{margin-top:0}.utility-bar{display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding:20px 4px}.text-button{background:none;border:0;color:#728198;font-size:10px;padding:8px 0;min-height:32px}.text-button:disabled{color:#a8b1bf}.text-button:hover:not(:disabled){color:var(--blue)}footer{padding:19px 0 27px;border-top:1px solid #e2e7ef;color:#9aa5b7;display:flex;justify-content:space-between;font-size:8px;letter-spacing:1px}.footer-version{letter-spacing:.6px;font-size:7px;color:#a5adbc}footer>span:last-child{letter-spacing:0;font-size:9px}.notice{font-size:12px;line-height:1.7;border:1px solid #e3eaff;background:#f5f8ff;padding:13px;border-radius:10px;margin:20px 0 0;color:#536a95}.notice.error{background:#fff8ee;border-color:#f0dfc4;color:#895f2c}.notice.good{background:#f4faf5;border-color:#dfece2;color:#417352}.consent{display:flex;align-items:flex-start;gap:10px;font-size:12px;color:#64738b;line-height:1.65;margin-top:20px;padding:13px;border-radius:10px;background:#f6f8fb}.consent input{flex:0 0 19px;width:19px;height:19px;margin:1px 0 0;accent-color:var(--blue)}.timer-panel{margin-top:22px}.timer-panel>div{display:flex;justify-content:space-between;align-items:center;color:#64738b;font-size:12px}.timer-panel strong{font-size:26px;font-weight:550;font-variant-numeric:tabular-nums;letter-spacing:-1px;color:var(--blue)}progress{width:100%;height:5px;appearance:none;border:0;border-radius:5px;overflow:hidden;margin-top:12px;background:#edf1f8}progress::-webkit-progress-bar{background:#edf1f8}progress::-webkit-progress-value{background:var(--blue);border-radius:5px}progress::-moz-progress-bar{background:var(--blue)}.timer-panel p{font-size:10px;color:#8390a5;margin:9px 0 0;text-align:center}.results-card{padding:25px 28px;margin-top:24px}.results-card>.muted{font-size:13px;line-height:1.8}.candidate-list{display:flex;flex-direction:column;gap:9px;margin:18px 0}.candidate{padding:15px;border:1px solid #e8ecf3;border-radius:11px;display:flex;flex-direction:column;gap:5px;background:#fafbfe}.candidate.likely{border-color:#cbd9ff;background:#f4f7ff}.candidate strong{font-size:13px;font-weight:600;overflow-wrap:anywhere}.candidate .candidate-meta{font-size:10px;line-height:1.7;color:#7d8ca4;overflow-wrap:anywhere}.candidate .candidate-label{font-size:8px;font-weight:700;letter-spacing:1px;color:var(--blue);margin-bottom:2px}.history-entry{border-top:1px solid var(--line);padding:12px 0;display:flex;justify-content:space-between;gap:10px;font-size:10px;color:#8492a8}.history-entry strong{font-weight:550;color:#5f708a}.history-note{font-size:10px;line-height:1.6;color:#8593a8;margin:0 0 15px}.noscript{padding:25px;text-align:center}.complete-icon .remote-icon{color:var(--green)}
+@keyframes breathe{0%,100%{box-shadow:0 0 0 0 #dce6ff00;border-color:#e0e9fb}50%{box-shadow:0 0 0 10px #e9efff60;border-color:#aec5ff}}
+@media(min-width:1350px){.app-shell{max-width:1220px}.intro{padding-top:52px}.workspace{grid-template-columns:minmax(0,1.5fr) minmax(310px,1fr)}.radar{margin-top:28px}}
+@media(max-width:760px){.app-shell{padding:0 22px}.topbar{padding:21px 0}.brand{font-size:18px}.privacy-chip{font-size:10px;padding:7px 9px}.intro{padding:33px 0 28px}h1{font-size:45px;letter-spacing:-2.2px;margin-top:17px}.intro p{font-size:13px}.eyebrow{font-size:9px;letter-spacing:1px}.eyebrow .tag{font-size:7px;padding:3px 5px;margin-left:auto}.steps{margin-bottom:19px}.step{gap:7px;font-size:10px;padding-bottom:16px}.step-num{width:20px;height:20px;font-size:9px}.workspace{grid-template-columns:1fr;gap:19px}.test-card{padding:22px 24px 0}.radar{margin-top:7px;width:240px;height:230px}.ring-one{width:200px;height:200px}.ring-two{width:150px;height:150px}.ring-three{width:102px;height:102px}.radar-caption{bottom:1px}.phase-copy{margin-top:16px}.phase-copy h2{font-size:23px}.phase-copy p{font-size:12px}.actions{margin-top:22px}.button{min-height:53px;font-size:12px}.action-footnote{margin-bottom:22px}.readouts{margin:0 -24px;padding:20px 12px}.readouts span{font-size:20px}.readouts small{font-size:8px}.side-column{gap:17px}.checks-card{padding:21px 22px 11px}.checks dt{font-size:12px}.check-pill{font-size:10px}.checks-card>.small{font-size:11px;margin-bottom:18px}.checks>div{padding:13px 0}.limit-note{padding:0 8px}.limit-note h2{font-size:12px}.limit-note p{font-size:11px}.plan-card{padding:22px 22px 0}.plan strong{font-size:12px}.plan p{font-size:11px}.plan-time{margin:0 -22px;padding:15px 22px;font-size:10px}.lower-grid{grid-template-columns:1fr;gap:11px;margin-top:19px}.detail-card summary{font-size:12px}.utility-bar{column-gap:18px;padding:15px 3px}.text-button{font-size:10px;min-height:44px}footer{line-height:1.7;font-size:7px;gap:10px}.footer-version{display:block;font-size:7px}footer>span:last-child{font-size:9px}.results-card{padding:22px}.consent{font-size:11px}.notice{font-size:12px}}
+@media(max-width:440px){.mobile-break{display:block}.desktop-break{display:none}.app-shell{padding:0 19px}.privacy-chip span{font-size:9px}.eyebrow{gap:6px}.intro p{max-width:330px}.brand-sub{font-size:7px;letter-spacing:1.5px}.brand-icon{width:36px;height:36px}.brand{gap:9px}.step{font-size:9px;gap:6px}.tag{font-size:7px}.test-card{border-radius:18px}.card-topline .overline{font-size:8px}.status-badge{font-size:9px}.checks-card,.plan-card{border-radius:16px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+
+</style>
+  <script type="module">
+// Only advertisement events feed this module. Names and payloads never establish identity.
+const VERSION = '0.2.0';
+const BUCKET_MS = 5000;
+const MAX_DEVICES = 750;
+const PHASES = [
+  { id: 'probe', group: 0, title: 'Check the Bluetooth API', label: 'Bluetooth check', settleMs: 0, durationMs: 20000,
+    instruction: 'Keep Safari open and your iPhone near the TV. Allow Bluetooth when asked. We’ll check real advertisements for RSSI and device IDs.', button: 'Test Bluetooth', consent: null },
+  { id: 'off1', group: 1, title: 'Take the batteries out', label: 'Baseline · round 1', settleMs: 15000, durationMs: 45000,
+    instruction: 'Remove both batteries from the Magic Remote. Keep the TV on and the iPhone in one place. Start the 15-second settling timer, then tap again to begin a fresh 45-second scan.', button: 'Start baseline timer', consent: 'Both remote batteries are removed. My TV is on and my iPhone will stay in the same place.' },
+  { id: 'on1', group: 1, title: 'Put the batteries back in', label: 'Comparison · round 1', settleMs: 180000, durationMs: 60000,
+    instruction: 'Install both batteries and confirm the Magic Remote pointer or voice control works on the TV; power or volume alone may use infrared. Leave it paired; do not reset or unpair it. Set it down near the iPhone. Start the 3-minute idle countdown, then tap again to scan for 1 minute without touching the remote.', button: 'Start idle countdown', consent: 'Magic Remote pointer or voice control works and the remote remains paired. I will leave it untouched and keep my iPhone in the same place.' },
+  { id: 'off2', group: 1, title: 'Repeat with batteries out', label: 'Baseline · round 2', settleMs: 15000, durationMs: 45000,
+    instruction: 'Remove both batteries again. This second baseline helps exclude neighboring devices that happened to appear during the first comparison. Keep the TV and iPhone in the same positions. After the 15-second timer, tap to start a fresh scan.', button: 'Start second baseline timer', consent: 'Both remote batteries are removed again. The TV is on and the iPhone has not moved.' },
+  { id: 'on2', group: 1, title: 'Repeat with batteries in', label: 'Comparison · round 2', settleMs: 180000, durationMs: 60000,
+    instruction: 'Reinstall both batteries and confirm Magic Remote pointer or voice control once more; power or volume alone may use infrared. Leave the remote paired and set it down. After the 3-minute idle countdown, tap to start a fresh 1-minute scan. No remote button presses or movement during the wait or scan.', button: 'Start second idle countdown', consent: 'Magic Remote pointer or voice control still works and the remote remains paired. I will leave the remote untouched and keep my iPhone still.' },
+  { id: 'idle', group: 2, title: 'Let the remote stay idle', label: 'Untouched · 5 minutes', settleMs: 0, durationMs: 300000,
+    instruction: 'Leave the remote exactly where it is, still paired to the powered-on TV. Do not touch it. We’ll measure the likely candidate for 5 more minutes and look for long gaps that would make a finder unreliable.', button: 'Test idle reliability', consent: 'The TV is on, the remote remains paired, and I will not touch or move the remote for 5 minutes.' },
+  { id: 'recheck', group: 3, title: 'Check the ID after reload', label: 'Identifier check · 1 minute', settleMs: 0, durationMs: 60000,
+    instruction: 'The page has reloaded. Keep the remote paired, untouched, and close to your stationary iPhone. We’ll check whether the exact same device ID returns with usable RSSI.', button: 'Verify the same identifier', consent: 'The remote is still paired to the powered-on TV and has stayed untouched since the idle test.' }
+];
+
+const isRSSI = value => typeof value === 'number' && Number.isFinite(value) && value >= -127 && value <= 20;
+const median = values => {
+  if (!values.length) return null;
+  const sorted = [...values].sort((a, b) => a - b);
+  const middle = Math.floor(sorted.length / 2);
+  return sorted.length % 2 ? sorted[middle] : (sorted[middle - 1] + sorted[middle]) / 2;
+};
+
+function createRun(phase, wallNow = Date.now()) {
+  return { phase: phase.id, durationMs: phase.durationMs, startedAt: wallNow, settledForMs: phase.settledForMs || 0,
+    events: 0, missingIDs: 0, invalidRSSI: 0, droppedDevices: 0, completed: false, devices: new Map(),
+    radio: { firstMs: null, lastMs: null, maxInnerGapMs: 0, buckets: new Set() } };
+}
+
+function addAdvertisement(run, event, elapsedMs) {
+  if (elapsedMs < 0 || elapsedMs >= run.durationMs || run.completed) return;
+  run.events++;
+  const rssi = isRSSI(event?.rssi) ? event.rssi : null;
+  if (rssi === null) run.invalidRSSI++;
+  if (rssi !== null) {
+    if (run.radio.lastMs !== null) run.radio.maxInnerGapMs = Math.max(run.radio.maxInnerGapMs, elapsedMs - run.radio.lastMs);
+    else run.radio.firstMs = elapsedMs;
+    run.radio.lastMs = elapsedMs;
+    run.radio.buckets.add(Math.floor(elapsedMs / BUCKET_MS));
+  }
+  // An ID is opaque. Do not trim it, derive it, or substitute the device name.
+  const id = event?.device?.id;
+  if (typeof id !== 'string' || id.trim().length === 0 || id.length > 512) {
+    run.missingIDs++;
+    return;
+  }
+  if (!run.devices.has(id)) {
+    if (run.devices.size >= MAX_DEVICES) { run.droppedDevices++; return; }
+    run.devices.set(id, { id, names: new Set(), count: 0, rssiCount: 0, firstMs: elapsedMs,
+      lastMs: elapsedMs, maxInnerGapMs: 0, buckets: new Map(), rssiSample: [] });
+  }
+  const row = run.devices.get(id);
+  const name = typeof event.name === 'string' ? event.name : event.device?.name;
+  if (typeof name === 'string' && name.trim() && row.names.size < 4) row.names.add(name.slice(0, 120));
+  row.count++;
+  // Include *RSSI* arrival gaps, rather than filling gaps with identifier-only events.
+  if (rssi !== null) {
+    if (row.rssiCount) row.maxInnerGapMs = Math.max(row.maxInnerGapMs, elapsedMs - row.lastRSSIMs);
+    else row.firstRSSIMs = elapsedMs;
+    row.lastRSSIMs = elapsedMs;
+    row.rssiCount++;
+    if (row.rssiSample.length < 1500) row.rssiSample.push(rssi);
+    const bin = Math.floor(elapsedMs / BUCKET_MS);
+    row.buckets.set(bin, (row.buckets.get(bin) || 0) + 1);
+  }
+  row.lastMs = elapsedMs;
+}
+
+function summarize(row, run) {
+  if (!row) return { count: 0, rssiCount: 0, coverage: 0, medianRSSI: null, maxGapMs: run.durationMs, buckets: 0 };
+  return { count: row.count, rssiCount: row.rssiCount, buckets: row.buckets.size,
+    firstRSSIMs: row.firstRSSIMs ?? null, lastRSSIMs: row.lastRSSIMs ?? null,
+    coverage: row.buckets.size / Math.ceil(run.durationMs / BUCKET_MS),
+    medianRSSI: median(row.rssiSample),
+    maxGapMs: row.rssiCount ? Math.max(row.firstRSSIMs, row.maxInnerGapMs, run.durationMs - row.lastRSSIMs) : run.durationMs };
+}
+
+function radioSummary(run) {
+  const radio = run.radio;
+  return { firstRSSIMs: radio.firstMs, lastRSSIMs: radio.lastMs,
+    coverage: radio.buckets.size / Math.ceil(run.durationMs / BUCKET_MS),
+    maxGapMs: radio.firstMs === null ? run.durationMs : Math.max(radio.firstMs, radio.maxInnerGapMs, run.durationMs - radio.lastMs),
+    populatedWindows: [...radio.buckets].sort((a, b) => a - b) };
+}
+
+// Scan quality describes the scanner's evidence, never the remote's identity.
+function scanQuality(run) {
+  if (!run?.completed) return { ok: false, code: 'incomplete', message: 'This measurement did not finish. Repeat only this step.' };
+  if (run.droppedDevices) return { ok: false, code: 'capacity', message: 'This scan exceeded the device limit. Its baseline cannot be trusted. Repeat only this step.' };
+  if (run.missingIDs) return { ok: false, code: 'missing-identifiers', message: 'This scan contained advertisements without usable device IDs. Repeat only this step; unknown devices cannot safely be subtracted from a baseline.' };
+  if (!run.events) return { ok: false, code: 'no-events', message: 'No device advertisements arrived during this scan. This is an inconclusive scan, not evidence that the remote is absent. Repeat only this step.' };
+  const summary = radioSummary(run);
+  if (summary.coverage < 0.6 || summary.maxGapMs > 15000) return { ok: false, code: 'radio-gap', message: 'Advertisements were absent or unusable for too much of this scan. Repeat only this step with Safari visible and the screen awake.' };
+  const repeat = [...run.devices.values()].some(row => row.rssiCount >= 3 && row.buckets.size >= 2 && row.names.size <= 1);
+  if (!repeat) return { ok: false, code: 'no-repeatable-background', message: 'This scan did not contain repeatable device IDs with RSSI. Repeat only this step.' };
+  return { ok: true, code: 'usable', message: 'This scan contains sufficiently continuous real advertisements and repeating IDs.' };
+}
+
+function apiVerdict(run) {
+  if (!run?.completed) return { ok: false, code: 'incomplete', message: 'The API check has not completed.' };
+  if (run.droppedDevices) return { ok: false, code: 'capacity', message: 'Too many devices to complete a reliable test. No result has been accepted.' };
+  if (!run.events) return { ok: false, code: 'no-events', message: 'The scan opened, but no advertisements arrived. Check Bluetooth and beacio’s permission for this website. This cannot establish whether the remote is detectable.' };
+  if (run.missingIDs) return { ok: false, code: 'missing-identifiers', message: 'Some advertisements arrived without usable device.id values. Those devices cannot be tracked across baseline and comparison scans, so reliable neighbor subtraction is not verified.' };
+  const repeat = [...run.devices.values()].some(row => row.rssiCount >= 3 && row.buckets.size >= 2 && row.names.size <= 1);
+  if (!repeat) return { ok: false, code: 'missing-fields', message: 'No device delivered repeated numeric RSSI with the same usable device.id across multiple time windows. Continuous signal scanning is not verified. A device chooser alone cannot provide this test.' };
+  return { ok: true, code: 'observed', message: 'Real advertisement events include usable RSSI and repeating device IDs. Remote identity and longer-term ID stability are still unverified.' };
+}
+
+function healthy(run, exceptID = null) {
+  return scanQuality(run).ok && [...run.devices.values()].some(row => row.id !== exceptID && row.rssiCount >= 3 && row.buckets.size >= 2);
+}
+
+function rankCandidates(runs) {
+  const off = ['off1', 'off2'].map(id => runs.find(r => r.phase === id));
+  const on = ['on1', 'on2'].map(id => runs.find(r => r.phase === id));
+  if ([...off, ...on].some(r => !r?.completed)) return { status: 'incomplete', candidates: [], message: 'Complete both controlled comparison rounds first.' };
+  if ([...off, ...on].some(r => !healthy(r))) return { status: 'inconclusive', candidates: [], message: 'At least one scan lacked repeatable background devices, contained missing identifiers, or exceeded capacity. An empty or incomplete baseline cannot confirm a remote. Repeat the test with Safari in the foreground.' };
+  const ids = new Set(on.flatMap(r => [...r.devices.keys()]));
+  const candidates = [];
+  for (const id of ids) {
+    if (off.some(r => r.devices.has(id))) continue;
+    const rows = on.map(r => r.devices.get(id));
+    const stats = rows.map((row, i) => summarize(row, on[i]));
+    const names = new Set(rows.flatMap(row => row ? [...row.names] : []));
+    const repeated = rows.every(Boolean);
+    const usable = stats.every(s => s.rssiCount >= 5 && s.coverage >= 0.5 && s.buckets >= 3);
+    const strict = repeated && usable && names.size <= 1 && on.every(r => healthy(r, id));
+    candidates.push({ id, name: [...names][0] || 'Unnamed Bluetooth device', strict, repeated, stats,
+      score: (repeated ? 4 : 0) + (usable ? 2 : 0) + Math.min(...stats.map(s => s.coverage)), collision: names.size > 1 });
+  }
+  candidates.sort((a, b) => Number(b.strict) - Number(a.strict) || b.score - a.score || a.id.localeCompare(b.id));
+  const strong = candidates.filter(c => c.strict);
+  if (strong.length > 1) return { status: 'ambiguous', candidates, message: `${strong.length} devices follow the battery changes. We cannot safely identify one remote. Repeat the controlled test; names and signal strength cannot resolve this ambiguity.` };
+  if (strong.length === 1) return { status: 'candidate', candidates, selected: strong[0], message: 'One device appeared with the same ID in both batteries-in scans and neither batteries-out scan. It is a likely candidate, not a verified LG identity. Test it untouched next.' };
+  return { status: 'no-match', candidates, message: 'No repeatable idle candidate passed both comparison rounds. A hot/cold finder is not justified by these results. The remote may sleep, remain connected without advertising, or use a radio mode this BLE scanner cannot observe. This test does not prove it never advertises.' };
+}
+
+function reliability(run, id) {
+  const stats = summarize(run?.devices.get(id), run || { durationMs: 60000 });
+  const ok = !!run?.completed && healthy(run, id) && stats.rssiCount >= 12 && stats.coverage >= 0.8 && stats.maxGapMs <= 10000 && run.devices.get(id)?.names.size <= 1;
+  return { ok, stats, message: ok
+    ? 'The exact candidate ID supplied RSSI in at least 80% of 5-second windows, with no gap over 10 seconds, during this test.'
+    : 'The same candidate ID did not provide sufficiently continuous RSSI, or the background scan was unhealthy. We cannot distinguish a sleeping remote, a changed identifier, or scanner limitations. A reliable idle finder is not verified.' };
+}
+
+function redactedReport(runs, selected, outcome, facts) {
+  const labels = new Map();
+  for (const run of runs) for (const id of run.devices.keys()) if (!labels.has(id)) labels.set(id, `Device ${String(labels.size + 1).padStart(3, '0')}`);
+  if (selected && !labels.has(selected.id)) labels.set(selected.id, 'Previously tested candidate');
+  return { app: 'Remote Radar', version: VERSION, reportType: 'redacted, user-downloaded, real-event summaries',
+    outcome, facts, candidate: selected ? labels.get(selected.id) : null,
+    limitations: ['Device association is inferred from controlled battery changes, not manufacturer identity.', 'No distance, direction, or hot/cold estimate is produced.', 'An idle pass applies only to the measured period, paired state, and powered-on TV.', 'No permanent identifier stability guarantee is possible.'],
+    runs: runs.map(run => ({ phase: run.phase, durationMs: run.durationMs, settledForMs: run.settledForMs, completed: run.completed, events: run.events,
+      accepted: run.accepted ?? null, failureCode: run.failureCode ?? null, radio: radioSummary(run),
+      missingIDs: run.missingIDs, invalidRSSI: run.invalidRSSI, droppedDevices: run.droppedDevices,
+      devices: [...run.devices.values()].map(row => ({ label: labels.get(row.id), ...summarize(row, run), conflictingNames: row.names.size > 1 })) })) };
+}
+
+const SILENCE_LIMIT_MS = 15000;
+
+function scanError(message, code) { const error = new Error(message); error.code = code; return error; }
+
+// There is no chooser, GATT connection, polling RSSI substitute, or demo-data path.
+class BluetoothScanner {
+  constructor({ bluetooth, document: doc = globalThis.document, now = () => performance.now(), wallNow = () => Date.now(),
+    every = (fn, ms) => setInterval(fn, ms), clear = id => clearInterval(id) } = {}) {
+    Object.assign(this, { bluetooth, doc, now, wallNow, every, clear });
+    this.job = null;
+    this.mustCloseTab = false;
+  }
+
+  wait(phase, onProgress = () => {}) {
+    if (this.mustCloseTab) return Promise.reject(scanError('A scan could not be stopped. Close this tab before testing again.', 'stop-failed'));
+    if (this.job) return Promise.reject(new Error('A step is already running.'));
+    let resolve, reject;
+    const result = new Promise((yes, no) => { resolve = yes; reject = no; });
+    const job = { kind: 'wait', phase, resolve, reject, handle: null, timer: null, run: null, closed: false };
+    this.job = job;
+    const start = this.now(); let lastTick = start, lastWall = this.wallNow();
+    job.visibility = () => { if (this.doc?.hidden) this.finish(job, scanError('Safari left the foreground. Repeat this step with the screen awake.', 'foreground')); };
+    this.doc?.addEventListener('visibilitychange', job.visibility);
+    const tick = () => {
+      if (job.closed) return;
+      const now = this.now(), wall = this.wallNow();
+      if (this.doc?.hidden) { job.visibility(); return; }
+      if (now - lastTick > 3000 || Math.abs((wall - lastWall) - (now - lastTick)) > 3000) {
+        this.finish(job, scanError('The settling timer was interrupted. Keep Safari visible and repeat this step.', 'timing')); return;
+      }
+      lastTick = now; lastWall = wall;
+      const remainingMs = Math.max(0, phase.settleMs - (now - start));
+      onProgress({ state: 'settling', remainingMs, run: null });
+      if (!remainingMs) { job.run = { phase: phase.id, settledForMs: phase.settleMs }; this.finish(job); }
+    };
+    tick();
+    if (!job.closed) job.timer = this.every(tick, 250);
+    return result;
+  }
+
+  run(phase, onProgress = () => {}) {
+    if (this.mustCloseTab) return Promise.reject(scanError('A scan could not be stopped. Close this tab before testing again.', 'stop-failed'));
+    if (this.job) return Promise.reject(new Error('A scan is already running.'));
+    if (phase.settleMs !== 0) return Promise.reject(new Error('Complete the separate settling timer, then start a fresh scan from a tap.'));
+    if (typeof this.bluetooth?.requestLEScan !== 'function' || typeof this.bluetooth?.addEventListener !== 'function') {
+      return Promise.reject(new Error('requestLEScan() and advertisement events are required. Enable beacio for this HTTPS page in iPhone Safari, then reload. requestDevice() alone is insufficient.'));
+    }
+    let resolve, reject;
+    const result = new Promise((yes, no) => { resolve = yes; reject = no; });
+    const job = { kind: 'scan', phase, resolve, reject, handle: null, timer: null, run: null, closed: false };
+    this.job = job;
+    const fail = error => this.finish(job, error instanceof Error ? error : new Error(String(error)));
+    job.listener = event => {
+      if (job.closed || !job.run || this.doc?.hidden) return;
+      const elapsed = this.now() - job.measureStart;
+      if (elapsed >= 0 && elapsed < phase.durationMs) job.lastAdvertisementMs = this.now();
+      addAdvertisement(job.run, event, elapsed);
+    };
+    job.visibility = () => { if (this.doc?.hidden) fail(scanError('Safari left the foreground. This scan was discarded. Return to this page and repeat this step.', 'foreground')); };
+    this.bluetooth.addEventListener('advertisementreceived', job.listener);
+    this.doc?.addEventListener('visibilitychange', job.visibility);
+    onProgress({ state: 'permission', remainingMs: null, run: null });
+    job.requestWall = this.wallNow();
+    job.timer = this.every(() => {
+      if (!job.handle && this.wallNow() - job.requestWall > 60000) fail(new Error('Bluetooth permission did not finish within 60 seconds. Allow Bluetooth, then retry this step.'));
+    }, 250);
+    let request;
+    try {
+      // Must happen directly in the click stack, before any awaited promise or settling timer.
+      request = this.bluetooth.requestLEScan({ acceptAllAdvertisements: true, keepRepeatedDevices: true });
+    } catch (error) { fail(error); return result; }
+    Promise.resolve(request).then(handle => {
+      if (job.closed) { try { handle?.stop?.(); } catch {} return; }
+      job.handle = handle;
+      if (typeof handle?.stop !== 'function') { this.mustCloseTab = true; fail(scanError('The scan API did not return a stoppable BluetoothLEScan. The required scanning implementation is not verified. Close this tab to end any scan.', 'stop-failed')); return; }
+      if (this.doc?.hidden) { job.visibility(); return; }
+      this.clear(job.timer);
+      job.started = this.now();
+      job.measureStart = job.started;
+      job.lastAdvertisementMs = job.started;
+      job.lastTick = job.started;
+      job.lastWall = this.wallNow();
+      job.run = createRun(phase, job.lastWall + phase.settleMs);
+      const tick = () => {
+        if (job.closed) return;
+        const now = this.now(), wall = this.wallNow();
+        if (this.doc?.hidden) { job.visibility(); return; }
+        if (now - job.lastTick > 3000 || Math.abs((wall - job.lastWall) - (now - job.lastTick)) > 3000) {
+          fail(scanError('Safari paused or the phone slept. Timing is unreliable, so this scan was discarded. Keep the screen awake and repeat the step.', 'timing')); return;
+        }
+        job.lastTick = now;
+        job.lastWall = wall;
+        if (handle.active === false) { fail(new Error('Bluetooth scanning stopped before the step finished. Check Bluetooth and repeat this step.')); return; }
+        const elapsed = now - job.measureStart;
+        if (now - job.lastAdvertisementMs >= SILENCE_LIMIT_MS) {
+          fail(scanError('No advertisements arrived from any device for 15 seconds. This scan cannot verify the remote. Keep the setup unchanged and retry only this step.', 'scan-silence')); return;
+        }
+        if (elapsed >= phase.durationMs) { job.run.completed = true; this.finish(job); return; }
+        onProgress({ state: elapsed < 0 ? 'settling' : 'scanning', remainingMs: elapsed < 0 ? -elapsed : phase.durationMs - elapsed, run: job.run });
+      };
+      tick();
+      if (!job.closed) job.timer = this.every(tick, 250);
+    }, fail);
+    return result;
+  }
+
+  finish(job, error = null) {
+    if (job.closed) return;
+    job.closed = true;
+    this.clear(job.timer);
+    if (job.listener) this.bluetooth.removeEventListener('advertisementreceived', job.listener);
+    this.doc?.removeEventListener('visibilitychange', job.visibility);
+    try { job.handle?.stop?.(); } catch (stopError) { this.mustCloseTab = true; error = scanError(`The scan stop call failed: ${stopError.message}. Close this tab to end Bluetooth access.`, 'stop-failed'); }
+    if (this.job === job) this.job = null;
+    if (error) {
+      const failure = scanError(error.message, typeof error.code === 'string' ? error.code : 'scan-error');
+      failure.name = error.name;
+      if (job.kind === 'scan' && job.run) { job.run.accepted = false; job.run.failureCode = failure.code; failure.scanRun = job.run; }
+      job.reject(failure);
+    } else job.resolve(job.run);
+  }
+
+  cancel() { if (this.job) this.finish(this.job, new Error('Scan stopped. The incomplete step was discarded; you can repeat it.')); }
+}
+
+
+const $ = id => document.getElementById(id);
+const PENDING_KEY = 'remote-radar.pending.v1';
+const SAVED_KEY = 'remote-radar.candidate.v1';
+const MAX_CHECKPOINT_AGE = 30 * 60 * 1000;
+let runs = [], selected = null, phaseIndex = 0, busy = false, mode = 'phase';
+let outcome = 'untested', comparison = null, previousSession = null, wakeLock = null;
+let scanGeneration = 0;
+let preparedPhase = null, activeOperation = 'scan', discardedAttempts = [];
+const PREPARATION_MAX_AGE = 5 * 60 * 1000;
+let facts = { probe: null, comparison: null, idle: null, reload: null };
+const scanner = new BluetoothScanner({ bluetooth: navigator.bluetooth });
+
+function element(tag, text, className) {
+  const node = document.createElement(tag);
+  if (text !== undefined) node.textContent = text;
+  if (className) node.className = className;
+  return node;
+}
+function storageRead(area, key) { try { return JSON.parse(window[area].getItem(key) || 'null'); } catch { return null; } }
+function storageRemove(area, key) { try { window[area].removeItem(key); } catch {} }
+function showNotice(message, kind = '') { $('notice').textContent = message; $('notice').className = `notice ${kind}`; $('notice').hidden = !message; }
+function setCheck(id, text, kind = '') { $(id).textContent = text; $(id).className = `check-pill ${kind}`; }
+function badge(text, kind = '') { $('status-badge').replaceChildren(element('span'), document.createTextNode(text)); $('status-badge').className = `status-badge ${kind}`; }
+function formatTime(ms) { const s = Math.max(0, Math.ceil(ms / 1000)); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; }
+function displayID(id) { return id.length > 24 ? `${id.slice(0, 12)}…${id.slice(-8)}` : id; }
+
+function refreshFeatures() {
+  const supported = typeof navigator.bluetooth?.requestLEScan === 'function' && typeof navigator.bluetooth?.addEventListener === 'function';
+  scanner.bluetooth = navigator.bluetooth;
+  setCheck('check-secure', window.isSecureContext ? 'Secure' : 'HTTPS required', window.isSecureContext ? 'good' : 'bad');
+  setCheck('check-api', supported ? 'Present · untested' : 'Not available', supported ? 'pending' : 'bad');
+  if (facts.probe) setCheck('check-api', facts.probe.ok ? 'Scan verified' : 'Not verified', facts.probe.ok ? 'good' : 'bad');
+  $('unsupported-help').hidden = supported && window.isSecureContext;
+  return supported && window.isSecureContext;
+}
+
+function updateChecks(run = null) {
+  const observations = run || runs.at(-1);
+  if (observations) {
+    setCheck('check-events', observations.events ? 'Observed' : 'None observed', observations.events ? 'good' : 'bad');
+    setCheck('check-rssi', observations.events > observations.invalidRSSI ? 'Observed' : 'Not observed', observations.events > observations.invalidRSSI ? 'good' : 'bad');
+  } else if (facts.probe?.ok) {
+    setCheck('check-events', 'Observed earlier', 'good'); setCheck('check-rssi', 'Observed earlier', 'good');
+  }
+  if (facts.reload?.ok) setCheck('check-id', 'Same after reload', 'good');
+  else if (facts.reload?.ok === false) setCheck('check-id', 'Not reverified', 'bad');
+  else if (facts.comparison === 'candidate') setCheck('check-id', 'Repeats · 2 rounds', 'pending');
+  else if (facts.probe?.ok) setCheck('check-id', 'Repeats · API test', 'pending');
+  if (facts.idle) setCheck('check-idle', facts.idle.ok ? 'Passed · 5 minutes' : 'Not reliable', facts.idle.ok ? 'good' : 'bad');
+  refreshFeatures();
+}
+
+function renderPhase() {
+  const phase = PHASES[phaseIndex];
+  $('phase-label').textContent = phase.label.toUpperCase();
+  $('phase-title').textContent = phase.title;
+  $('phase-instruction').textContent = phase.instruction;
+  $('consent').checked = false;
+  $('consent-row').hidden = !phase.consent;
+  $('consent-text').textContent = phase.consent || '';
+  $('start').replaceChildren(element('span', phase.button), element('span', '↗', 'button-arrow'));
+  $('start').disabled = !!phase.consent;
+  $('start').hidden = false;
+  $('stop').hidden = true;
+  $('timer-panel').hidden = true;
+  $('radar').classList.remove('scanning', 'complete-icon');
+  $('radar-caption').textContent = 'NO SIGNAL ASSUMED';
+  $('action-footnote').textContent = phase.settleMs
+    ? `${formatTime(phase.settleMs)} wait, then tap to start a fresh ${formatTime(phase.durationMs)} scan`
+    : `${formatTime(phase.durationMs)} scan · stay on this page`;
+  badge(phaseIndex ? 'Ready for next step' : 'Not tested');
+  showNotice('');
+  document.querySelectorAll('[data-group]').forEach(node => {
+    const group = Number(node.dataset.group);
+    node.classList.toggle('current', group === phase.group);
+    node.classList.toggle('done', group < phase.group);
+    if (group === phase.group) node.setAttribute('aria-current', 'step'); else node.removeAttribute('aria-current');
+  });
+  updateChecks();
+}
+
+function preparationValid(phase) {
+  return preparedPhase?.id === phase.id && Date.now() - preparedPhase.at >= 0 && Date.now() - preparedPhase.at < PREPARATION_MAX_AGE;
+}
+
+function renderReadyScan() {
+  renderPhase();
+  const phase = PHASES[phaseIndex];
+  $('phase-title').textContent = 'Ready for a fresh scan';
+  $('phase-instruction').textContent = phase.id.startsWith('off')
+    ? 'The settling timer is complete. Keep both remote batteries removed and the iPhone still. Tap below to scan now.'
+    : 'The idle countdown is complete. Leave the paired remote untouched, with the batteries installed and TV on. Tap below to scan now.';
+  $('consent-row').hidden = true; $('consent').checked = true;
+  $('start').textContent = `Start ${formatTime(phase.durationMs)} scan now`;
+  $('start').disabled = false;
+  $('action-footnote').textContent = 'Bluetooth scanning begins with your next tap. Keep the setup unchanged.';
+  $('radar-caption').textContent = 'WAIT COMPLETE · SCAN NOT STARTED';
+  badge('Tap to start scan', 'active');
+}
+
+function renderHistory() {
+  const total = runs.filter(r => r.completed).length + (previousSession?.runs.length || 0);
+  $('scan-total').textContent = `${total} accepted${discardedAttempts.length ? ` · ${discardedAttempts.length} rejected` : ''}`;
+  $('history').replaceChildren();
+  for (const row of previousSession?.runs || []) {
+    const entry = element('div', undefined, 'history-entry');
+    entry.append(element('strong', PHASES.find(p => p.id === row.phase)?.label || row.phase), element('span', `${row.events} events · ${row.devices} IDs`));
+    $('history').append(entry);
+  }
+  for (const run of runs) {
+    const entry = element('div', undefined, 'history-entry');
+    entry.append(element('strong', PHASES.find(p => p.id === run.phase).label), element('span', `${run.events} events · ${run.devices.size} IDs`));
+    $('history').append(entry);
+  }
+  for (const run of discardedAttempts) {
+    const entry = element('div', undefined, 'history-entry');
+    entry.append(element('strong', `${PHASES.find(p => p.id === run.phase)?.label || run.phase} · not accepted`), element('span', `${run.events} events · ${run.failureCode || 'unusable scan'}`));
+    $('history').append(entry);
+  }
+  if (total || discardedAttempts.length) $('history').append(element('p', 'Only accepted foreground scans count toward a remote match. Rejected attempts remain available for diagnosis. “Devices” means exposed IDs, not confirmed physical devices.', 'history-note'));
+  else $('history').append(element('p', 'Completed scans will appear here. Nothing has been measured yet.', 'muted small'));
+  $('export').disabled = !total && !discardedAttempts.length;
+}
+
+function renderComparison(result) {
+  $('results').hidden = false;
+  $('result-message').textContent = result.message;
+  $('result-badge').textContent = result.status === 'candidate' ? 'LIKELY · UNCONFIRMED' : result.status.toUpperCase();
+  $('candidate-list').replaceChildren();
+  for (const candidate of result.candidates.slice(0, 4)) {
+    const item = element('div', undefined, `candidate ${candidate.strict ? 'likely' : ''}`);
+    item.append(element('span', candidate.strict ? 'BATTERY-CHANGE MATCH · NOT CONFIRMED' : 'INSUFFICIENT EVIDENCE', 'candidate-label'));
+    item.append(element('strong', candidate.name));
+    item.append(element('span', `ID ${displayID(candidate.id)} · ${candidate.repeated ? 'same ID in both comparisons' : 'seen in only one comparison'}`, 'candidate-meta'));
+    const samples = candidate.stats.map((s, i) => `Round ${i + 1}: ${s.rssiCount} RSSI samples, ${Math.round(s.coverage * 100)}% window coverage`).join(' · ');
+    item.append(element('span', samples, 'candidate-meta'));
+    if (candidate.collision) item.append(element('span', 'Conflicting names were observed for this ID; excluded as a reliable match.', 'candidate-meta'));
+    $('candidate-list').append(item);
+  }
+  if (!result.candidates.length) $('candidate-list').append(element('p', 'No candidate has been identified.', 'small muted'));
+  if (result.candidates.length > 4) $('candidate-list').append(element('p', `${result.candidates.length - 4} additional weak candidates omitted. None is accepted without both comparison rounds.`, 'small muted'));
+}
+
+function blocked(message) {
+  mode = 'blocked'; outcome = 'not-verified';
+  $('phase-title').textContent = 'A finder isn’t verified.';
+  $('phase-instruction').textContent = 'The measured evidence does not support a reliable idle proximity finder. We stop at the feasibility test.';
+  $('consent-row').hidden = true;
+  $('start').hidden = false;
+  $('start').textContent = 'Repeat the controlled test';
+  $('start').disabled = false;
+  $('action-footnote').textContent = 'No distance or proximity reading has been generated.';
+  $('radar-caption').textContent = 'DETECTION NOT VERIFIED';
+  badge('Not verified', 'blocked'); showNotice(message, 'error');
+}
+
+function reloadReady() {
+  mode = 'reloadReady'; outcome = 'reload-check-needed';
+  $('phase-title').textContent = 'One more check: the identifier.';
+  $('phase-instruction').textContent = 'The likely candidate stayed detectable during the idle test. Reload this page and scan again to see whether its exact ID survives a new page session. Keep the remote untouched.';
+  $('consent-row').hidden = true;
+  $('start').textContent = 'Reload to verify identifier';
+  $('start').disabled = false;
+  $('start').hidden = false;
+  $('action-footnote').textContent = 'Only the candidate and test summary stay in this tab for the reload.';
+  $('radar-caption').textContent = 'IDLE TEST PASSED';
+  badge('ID check remaining', 'active');
+  showNotice('This is evidence for the measured period with the TV on. It does not guarantee that the remote will advertise overnight, with the TV off, or after its identifier changes.', 'good');
+}
+
+function done() {
+  mode = 'done'; outcome = 'measured-feasibility-pass';
+  $('phase-title').textContent = 'The candidate passed this test.';
+  $('phase-instruction').textContent = 'The likely device returned with the same ID after reload and supplied continuous RSSI. Its association with the remote is inferred from your battery tests. Hardware behavior outside this test remains unverified.';
+  $('consent-row').hidden = true;
+  $('start').hidden = false; $('start').disabled = false;
+  $('start').textContent = 'Remember this candidate';
+  $('action-footnote').textContent = 'Saved only in this browser, for this website. No scan history is saved.';
+  $('radar-caption').textContent = 'MEASURED FEASIBILITY PASS';
+  $('radar').classList.add('complete-icon');
+  badge('Test passed', 'good');
+  showNotice('The feasibility prototype ends here. Download the report to review the real hardware results before a live finder is built. No hot/cold, distance, or direction is being claimed.', 'good');
+  $('results').hidden = false;
+  $('result-message').textContent = 'Candidate passed two controlled comparison rounds, a 5-minute untouched test, and a 1-minute same-ID test after reload. This is bounded evidence, not a manufacturer-verified identity or permanent identifier guarantee.';
+  $('result-badge').textContent = 'TESTED · STILL A CANDIDATE';
+  $('candidate-list').replaceChildren();
+  const item = element('div', undefined, 'candidate likely');
+  item.append(element('strong', selected.name), element('span', `Observed ID ${displayID(selected.id)} · no live scan running`, 'candidate-meta'));
+  $('candidate-list').append(item);
+  updateChecks();
+}
+
+function acceptRun(run) {
+  const quality = run.phase === 'probe' && !apiVerdict(run).ok ? apiVerdict(run) : scanQuality(run);
+  if (!quality.ok) {
+    run.accepted = false; run.failureCode = quality.code; discardedAttempts.push(run);
+    if (run.phase === 'probe') facts.probe = quality;
+    if (preparationValid(PHASES[phaseIndex])) renderReadyScan(); else renderPhase();
+    badge('Retry this step', 'blocked');
+    showNotice(`${PHASES[phaseIndex].label}: ${quality.message}`, 'error');
+    renderHistory(); updateChecks(run);
+    outcome = 'retry-current-step'; return;
+  }
+  run.accepted = true; preparedPhase = null;
+  runs = runs.filter(r => r.phase !== run.phase); runs.push(run);
+  $('event-count').textContent = run.events.toLocaleString();
+  $('device-count').textContent = run.devices.size.toLocaleString();
+  $('rssi-count').textContent = (run.events - run.invalidRSSI).toLocaleString();
+  renderHistory(); updateChecks(run);
+  if (run.phase === 'probe') {
+    facts.probe = apiVerdict(run); updateChecks(run);
+    if (!facts.probe.ok) { outcome = 'api-not-verified'; badge('API not verified', 'blocked'); showNotice(facts.probe.message, 'error'); return; }
+    outcome = 'comparison-needed'; phaseIndex = 1; renderPhase(); showNotice(facts.probe.message, 'good');
+  } else if (run.phase === 'on2') {
+    comparison = rankCandidates(runs); facts.comparison = comparison.status; renderComparison(comparison);
+    if (comparison.status !== 'candidate') { blocked(comparison.message); return; }
+    selected = comparison.selected; outcome = 'idle-check-needed'; phaseIndex = 5; renderPhase(); showNotice(comparison.message);
+  } else if (run.phase === 'idle') {
+    facts.idle = reliability(run, selected.id); updateChecks(run);
+    if (!facts.idle.ok) { blocked(facts.idle.message); return; }
+    reloadReady();
+  } else if (run.phase === 'recheck') {
+    facts.reload = reliability(run, selected.id); updateChecks(run);
+    if (!facts.reload.ok) { blocked(facts.reload.message); return; }
+    storageRemove('sessionStorage', PENDING_KEY); done();
+  } else { phaseIndex++; renderPhase(); showNotice('Scan complete. Follow the next battery step to continue.'); }
+}
+
+function onProgress(progress) {
+  const phase = PHASES[phaseIndex];
+  $('timer-panel').hidden = false;
+  $('timer').textContent = progress.remainingMs === null ? '—' : formatTime(progress.remainingMs);
+  $('timer-stage').textContent = progress.state === 'permission' ? 'Allow Bluetooth in Safari' : progress.state === 'settling' ? 'Settling · measurements excluded' : 'Collecting real advertisements';
+  $('foreground-tip').textContent = progress.state === 'settling' && phase.id.startsWith('on')
+    ? 'Leave the remote untouched. Keep Safari visible and the screen awake.'
+    : 'Keep Safari visible and your screen awake. Interrupted scans are discarded.';
+  $('radar').classList.toggle('scanning', progress.state === 'scanning');
+  $('radar-caption').textContent = progress.state === 'scanning' ? 'LISTENING · NO PROXIMITY ESTIMATE' : progress.state === 'settling' ? 'WAITING FOR THE REMOTE TO SETTLE' : 'WAITING FOR BLUETOOTH';
+  const total = activeOperation === 'wait' ? phase.settleMs : phase.durationMs;
+  const remaining = progress.remainingMs ?? total;
+  $('scan-progress').value = Math.max(0, ((total - remaining) / total) * 100);
+  if (progress.state === 'scanning') {
+    $('event-count').textContent = progress.run.events.toLocaleString();
+    $('device-count').textContent = progress.run.devices.size.toLocaleString();
+    $('rssi-count').textContent = (progress.run.events - progress.run.invalidRSSI).toLocaleString();
+  }
+}
+
+async function runPhase() {
+  if (busy) return;
+  const phase = PHASES[phaseIndex];
+  if (phase.consent && !$('consent').checked) return;
+  if (!refreshFeatures()) {
+    showNotice('The required Bluetooth scanning API is unavailable here. Open the HTTPS site in iPhone Safari, enable beacio for this website, then reload. This browser cannot establish iPhone or remote feasibility.', 'error');
+    badge('API unavailable', 'blocked'); return;
+  }
+  busy = true; outcome = 'scan-in-progress'; showNotice(''); badge('Testing', 'active');
+  const generation = ++scanGeneration;
+  $('reset').disabled = true;
+  $('start').hidden = true; $('stop').hidden = false; $('consent-row').hidden = true;
+  $('action-footnote').textContent = 'Only actual advertisement events count. No simulated readings.';
+  $('event-count').textContent = '—'; $('device-count').textContent = '—'; $('rssi-count').textContent = '—';
+  activeOperation = phase.settleMs && !preparationValid(phase) ? 'wait' : 'scan';
+  const running = activeOperation === 'wait'
+    ? scanner.wait(phase, onProgress)
+    : scanner.run({ ...phase, settleMs: 0, settledForMs: preparedPhase?.id === phase.id ? phase.settleMs : 0 }, onProgress);
+  // The radio is requested only in the scan tap, after any settling timer.
+  if (navigator.wakeLock?.request) {
+    navigator.wakeLock.request('screen').then(lock => {
+      if (busy && generation === scanGeneration) wakeLock = lock; else lock.release().catch(() => {});
+    }).catch(() => {});
+  }
+  try {
+    const run = await running;
+    busy = false;
+    $('timer-panel').hidden = true; $('stop').hidden = true; $('radar').classList.remove('scanning');
+    $('start').hidden = false; $('consent-row').hidden = !phase.consent;
+    $('radar-caption').textContent = 'REAL SCAN COMPLETE';
+    if (activeOperation === 'wait') {
+      preparedPhase = { id: phase.id, at: Date.now() };
+      outcome = 'ready-for-fresh-scan'; renderReadyScan();
+    } else acceptRun(run);
+  } catch (error) {
+    busy = false; outcome = 'scan-not-completed';
+    if (error.scanRun) discardedAttempts.push(error.scanRun);
+    if (error.code !== 'scan-silence') preparedPhase = null;
+    if (preparationValid(phase)) renderReadyScan(); else renderPhase();
+    if (error.scanRun) {
+      $('event-count').textContent = error.scanRun.events.toLocaleString();
+      $('device-count').textContent = error.scanRun.devices.size.toLocaleString();
+      $('rssi-count').textContent = (error.scanRun.events - error.scanRun.invalidRSSI).toLocaleString();
+    } else { $('event-count').textContent = '—'; $('device-count').textContent = '—'; $('rssi-count').textContent = '—'; }
+    renderHistory();
+    if (error.code === 'stop-failed') $('start').disabled = true;
+    badge('Retry this step', 'blocked');
+    showNotice(`${error.name && error.name !== 'Error' ? `${error.name}: ` : ''}${error.message}`, 'error');
+  } finally {
+    busy = false;
+    $('reset').disabled = false;
+    const completedLock = wakeLock; wakeLock = null;
+    if (completedLock) { try { await completedLock.release(); } catch {} }
+  }
+}
+
+function resetComparisons() {
+  const probe = runs.find(r => r.phase === 'probe');
+  runs = probe ? [probe] : []; selected = null; comparison = null; previousSession = null;
+  preparedPhase = null; discardedAttempts = [];
+  facts = { probe: probe ? apiVerdict(probe) : null, comparison: null, idle: null, reload: null };
+  phaseIndex = probe && facts.probe.ok ? 1 : 0; mode = 'phase'; outcome = 'untested';
+  storageRemove('sessionStorage', PENDING_KEY);
+  $('results').hidden = true;
+  setCheck('check-id', 'Not tested'); setCheck('check-idle', 'Not tested');
+  renderPhase(); renderHistory();
+}
+
+function prepareReload() {
+  if (!selected || !facts.idle?.ok || facts.comparison !== 'candidate') return;
+  const checkpoint = { version: VERSION, createdAt: Date.now(), candidate: { id: selected.id, name: selected.name }, facts,
+    previousSession: { runs: runs.map(r => ({ phase: r.phase, events: r.events, devices: r.devices.size, durationMs: r.durationMs })),
+      candidateEvidence: runs.filter(r => ['on1', 'on2', 'idle'].includes(r.phase)).map(r => ({ phase: r.phase, ...summarize(r.devices.get(selected.id), r) })) } };
+  try {
+    sessionStorage.setItem(PENDING_KEY, JSON.stringify(checkpoint));
+    if (!sessionStorage.getItem(PENDING_KEY)) throw new Error('Storage unavailable');
+    window.location.reload();
+  } catch { showNotice('Safari did not allow this tab to retain the candidate for a reload. Identifier stability cannot be verified without that checkpoint. You can still download the current report.', 'error'); }
+}
+
+function restoreCheckpoint() {
+  const data = storageRead('sessionStorage', PENDING_KEY);
+  const age = Date.now() - (data?.createdAt || 0);
+  if (!data || data.version !== VERSION || age < 0 || age > MAX_CHECKPOINT_AGE || typeof data.candidate?.id !== 'string' || !data.candidate.id.trim() || data.candidate.id.length > 512 || typeof data.candidate.name !== 'string' || data.facts?.comparison !== 'candidate' || data.facts?.idle?.ok !== true || data.facts?.probe?.ok !== true || !Array.isArray(data.previousSession?.runs)) {
+    storageRemove('sessionStorage', PENDING_KEY); return;
+  }
+  selected = data.candidate; facts = data.facts; previousSession = data.previousSession;
+  phaseIndex = 6; outcome = 'reload-check-needed';
+}
+
+$('start').addEventListener('click', () => {
+  if (mode === 'blocked') { resetComparisons(); return; }
+  if (mode === 'reloadReady') { prepareReload(); return; }
+  if (mode === 'done') {
+    try {
+      localStorage.setItem(SAVED_KEY, JSON.stringify({ version: VERSION, id: selected.id, name: selected.name, testedAt: Date.now(), evidenceScope: 'two controlled battery rounds, five minutes idle, same-tab reload; TV on and paired' }));
+      $('saved-note').textContent = 'Candidate saved in this browser · no live detection running';
+      $('start').textContent = 'Candidate remembered locally'; $('start').disabled = true;
+    } catch { showNotice('Local storage is unavailable. The candidate has not been saved. The redacted report is still downloadable.', 'error'); }
+    return;
+  }
+  runPhase();
+});
+$('stop').addEventListener('click', () => scanner.cancel());
+$('consent').addEventListener('change', () => { if (!busy) $('start').disabled = !$('consent').checked; });
+$('export').addEventListener('click', () => {
+  const report = { ...redactedReport([...runs, ...discardedAttempts], selected, outcome, facts), ...(previousSession ? { previousSession } : {}) };
+  const url = URL.createObjectURL(new Blob([JSON.stringify(report, null, 2)], { type: 'application/json' }));
+  const link = element('a'); link.href = url; link.download = 'remote-radar-redacted-report.json';
+  document.body.append(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(url), 1000);
+});
+$('reset').addEventListener('click', () => {
+  if (busy) return;
+  storageRemove('sessionStorage', PENDING_KEY); storageRemove('localStorage', SAVED_KEY);
+  runs = []; facts = { probe: null, comparison: null, idle: null, reload: null };
+  selected = null; comparison = null; previousSession = null; phaseIndex = 0; mode = 'phase'; outcome = 'untested';
+  preparedPhase = null; discardedAttempts = [];
+  $('saved-note').textContent = '';
+  ['check-events', 'check-rssi', 'check-id', 'check-idle'].forEach(id => setCheck(id, 'Not tested'));
+  $('results').hidden = true; $('event-count').textContent = '—'; $('device-count').textContent = '—'; $('rssi-count').textContent = '—';
+  renderPhase(); renderHistory(); showNotice('This tab’s scan evidence, reload checkpoint, and saved candidate have been cleared. beacio manages its own Bluetooth permission and device records.');
+});
+window.addEventListener('beacio:ready', () => { if (!busy) refreshFeatures(); });
+window.addEventListener('beacio:extension:ready', () => { if (!busy) refreshFeatures(); });
+window.addEventListener('pagehide', () => scanner.cancel());
+restoreCheckpoint(); renderPhase(); renderHistory();
+const saved = storageRead('localStorage', SAVED_KEY);
+if (saved?.id && saved?.version === VERSION) $('saved-note').textContent = 'A previously tested candidate is saved · not currently detected';
+
+</script>
+</head>
+<body>
+  <a class="skip" href="#test">Skip to Bluetooth test</a>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="Remote Radar home">
+        <span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4.5"/><path d="m12 12 6-6"/><circle cx="12" cy="12" r="1"/></svg></span>
+        <span>Remote Radar<span class="brand-sub">A LITTLE LESS LOST.</span></span>
+      </a>
+      <a href="#privacy" class="privacy-chip"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m10 2 6 2.5v5c0 3.8-6 7-6 7s-6-3.2-6-7v-5L10 2Z"/><path d="m7.5 9 1.8 1.8 3.2-3.5"/></svg><span>On-device only</span></a>
+    </header>
+
+    <main>
+      <section class="intro" aria-labelledby="title">
+        <div class="eyebrow"><span class="small-dot"></span> LG C5 · MAGIC REMOTE <span class="tag">FEASIBILITY LAB</span></div>
+        <h1 id="title">First, find<br class="mobile-break"> the signal.</h1>
+        <p>Your remote has to be detectable before it can be findable.<br class="desktop-break"> Let’s see what your iPhone can actually hear.</p>
+      </section>
+
+      <nav class="steps" aria-label="Feasibility progress">
+        <div class="step current" data-group="0" aria-current="step"><span class="step-num">1</span><span>Bluetooth</span></div>
+        <div class="step" data-group="1"><span class="step-num">2</span><span>Isolate</span></div>
+        <div class="step" data-group="2"><span class="step-num">3</span><span>Idle test</span></div>
+        <div class="step" data-group="3"><span class="step-num">4</span><span>Verify ID</span></div>
+      </nav>
+
+      <div class="workspace">
+        <section id="test" class="test-card card" aria-labelledby="phase-title">
+          <div class="card-topline"><span id="phase-label" class="overline">BLUETOOTH CHECK</span><span id="status-badge" class="status-badge"><span></span>Not tested</span></div>
+          <div id="radar" class="radar" aria-hidden="true">
+            <div class="radar-grid"></div><div class="radar-ring ring-one"></div><div class="radar-ring ring-two"></div><div class="radar-ring ring-three"></div>
+            <div class="remote-icon"><svg viewBox="0 0 44 84" fill="none"><rect x="9" y="3" width="26" height="78" rx="13"/><circle cx="22" cy="16" r="2.5"/><circle cx="22" cy="38" r="8"/><circle cx="22" cy="38" r="3"/><path d="M16 56h12M16 63h12"/></svg></div>
+            <span class="radar-caption" id="radar-caption">NO SIGNAL ASSUMED</span>
+          </div>
+          <div class="phase-copy">
+            <h2 id="phase-title">Check the Bluetooth API</h2>
+            <p id="phase-instruction">Keep Safari open and your iPhone near the TV. Allow Bluetooth when asked. We’ll check real advertisements for RSSI and device IDs.</p>
+          </div>
+          <div id="timer-panel" class="timer-panel" hidden>
+            <div><span id="timer-stage">Scanning</span><strong id="timer" aria-label="Time remaining">0:20</strong></div>
+            <progress id="scan-progress" max="100" value="0" aria-label="Step progress"></progress>
+            <p id="foreground-tip">Keep Safari in front and your screen awake.</p>
+          </div>
+          <label id="consent-row" class="consent" hidden><input id="consent" type="checkbox"><span id="consent-text"></span></label>
+          <p id="notice" class="notice" role="status" aria-live="polite" hidden></p>
+          <div class="actions">
+            <button id="start" class="button primary" type="button"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m9 2 6 5-9 6 4 5V2Zm0 0L5 5m4 13-4-3"/></svg><span>Test Bluetooth</span><span class="button-arrow" aria-hidden="true">↗</span></button>
+            <button id="stop" class="button secondary" type="button" hidden>Stop this scan</button>
+          </div>
+          <p id="action-footnote" class="action-footnote">20 seconds · Bluetooth permission required</p>
+          <div class="readouts" aria-label="Observed scan data">
+            <div><span id="event-count">—</span><small>Advertisements</small></div>
+            <div><span id="device-count">—</span><small>Device IDs</small></div>
+            <div><span id="rssi-count">—</span><small>RSSI samples</small></div>
+          </div>
+        </section>
+
+        <aside class="side-column">
+          <section class="card checks-card" aria-labelledby="checks-heading">
+            <div class="section-heading"><h2 id="checks-heading">The reality check</h2><span class="mini-icon" aria-hidden="true">⌁</span></div>
+            <p class="muted small">Verified by your browser and real scan results.</p>
+            <dl class="checks">
+              <div><dt>Secure connection</dt><dd id="check-secure" class="check-pill">Checking</dd></div>
+              <div><dt>LE scanning API</dt><dd id="check-api" class="check-pill">Checking</dd></div>
+              <div><dt>Advertisement events</dt><dd id="check-events" class="check-pill">Not tested</dd></div>
+              <div><dt>Numeric RSSI</dt><dd id="check-rssi" class="check-pill">Not tested</dd></div>
+              <div><dt>Stable candidate ID</dt><dd id="check-id" class="check-pill">Not tested</dd></div>
+              <div><dt>Idle remote signal</dt><dd id="check-idle" class="check-pill">Not tested</dd></div>
+            </dl>
+            <div id="unsupported-help" class="setup-help" hidden><strong>Open this on your iPhone.</strong><p>Use Safari over HTTPS with beacio enabled and allowed for this website. Reload after enabling it. The Mac preview cannot verify your iPhone’s Bluetooth.</p><a href="https://beacio.com/docs" target="_blank" rel="noreferrer">beacio setup & documentation ↗</a></div>
+          </section>
+
+          <section class="limit-note" aria-labelledby="limit-heading">
+            <span class="info-icon" aria-hidden="true">i</span>
+            <div><h2 id="limit-heading">A quiet remote may be invisible.</h2><p>Being paired to your TV doesn’t guarantee the remote sends discoverable advertisements while idle. If it stays silent, this website can’t locate it.</p></div>
+          </section>
+
+          <section class="card plan-card" aria-labelledby="plan-heading">
+            <h2 id="plan-heading">A test, before a finder.</h2>
+            <ol class="plan">
+              <li><span>01</span><div><strong>Check real radio data</strong><p>Scan events, RSSI, and identifiers.</p></div></li>
+              <li><span>02</span><div><strong>Filter out the neighbors</strong><p>Two batteries-out / batteries-in rounds.</p></div></li>
+              <li><span>03</span><div><strong>Leave it untouched</strong><p>Five minutes idle, then an ID check.</p></div></li>
+            </ol>
+            <div class="plan-time"><span aria-hidden="true">◷</span> About 15 minutes after the API check</div>
+          </section>
+        </aside>
+      </div>
+
+      <section id="results" class="card results-card" aria-labelledby="results-heading" hidden>
+        <div class="section-heading"><h2 id="results-heading">What the scans tell us</h2><span id="result-badge" class="tag">REAL DATA</span></div>
+        <p id="result-message" class="muted"></p>
+        <div id="candidate-list" class="candidate-list"></div>
+        <p class="small muted">Candidates come from battery-change evidence. Names, stronger RSSI, and LG-looking labels never confirm identity. No names or payloads are used to merge changing IDs.</p>
+      </section>
+
+      <section class="lower-grid">
+        <details class="card detail-card" id="evidence-details"><summary>Scan evidence <span id="scan-total" class="detail-count">0 complete</span></summary><div id="history" class="history"><p class="muted small">Completed scans will appear here. Nothing has been measured yet.</p></div></details>
+        <details class="card detail-card" id="privacy"><summary>Private by design <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="m10 2 6 2.5v5c0 3.8-6 7-6 7s-6-3.2-6-7v-5L10 2Z"/></svg></summary><div class="detail-copy"><p>Remote Radar processes radio events on this device. It has no analytics, external scripts, accounts, or scan upload endpoint. Its content policy blocks network connections from page scripts.</p><p>Scan evidence stays in memory. The reload check temporarily keeps only the selected candidate and its test summary in this tab’s session storage, for up to 30 minutes. A tested candidate is saved in this browser only when you choose “Remember this candidate.” Safari can clear local storage.</p><p>A downloaded report uses device aliases, omits names and actual identifiers, and stays in your Files unless you share it. The website host still receives ordinary page requests. beacio manages its own Bluetooth permissions.</p></div></details>
+      </section>
+
+      <div class="utility-bar"><button id="export" class="text-button" type="button" disabled>↓ Download redacted report</button><button id="reset" class="text-button" type="button">Reset & clear local data</button><span id="saved-note" class="small muted"></span></div>
+      <footer><span>REMOTE RADAR <span class="footer-version">/ FEASIBILITY PROTOTYPE 0.2</span></span><span>Real signals. Honest limits.</span></footer>
+    </main>
+  </div>
+  <noscript><p class="noscript">Enable JavaScript to run the Bluetooth feasibility test. No Bluetooth results are available without it.</p></noscript>
+</body>
+</html>
